@@ -1,0 +1,16 @@
+{
+  "name": "todonext",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "@types/node": "20.6.0",
+    "@types/react": "18.2.21",
+    "typescript": "5.2.2"
+  }
+}

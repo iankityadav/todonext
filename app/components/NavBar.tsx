@@ -9,6 +9,7 @@ const NavBar = () => {
       <Link href='/'>Home</Link>
       <Link href='/dashboard'>Dashboard</Link>
       { !isAuthenticated && <Link href='/login'>Login</Link> }
+      { !isAuthenticated && <Link href='/signup'>Sign up</Link> }
     </div>
   )
 }

@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`h-screen`}>
+      <body className={`max-h-screen`}>
         <NavBar/>
         <div className="m-2">{children}</div>
       </body>

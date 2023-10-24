@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import NavBar from './components/NavBar'
+import ReduxProvider from './components/ReduxProvider'
 
 
 export const metadata: Metadata = {
@@ -16,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`max-h-screen`}>
-        <NavBar/>
-        <div className="m-2">{children}</div>
+        <ReduxProvider>
+          <NavBar />
+          <div>{children}</div>
+        </ReduxProvider>
       </body>
     </html>
   )

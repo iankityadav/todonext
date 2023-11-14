@@ -16,7 +16,7 @@ export default function Home() {
       dispatch(setUser({ name: "Ankit Yadav", email: "ankit@mail.co", id: "67c4bdf3-2c60-41c8-89e8-cb4436c78add" }));
     }
     console.log(user)
-  }, [isAuth])
+  }, [isAuthenticated])
   return (
     <div className="h-screen flex justify-center items-center">
       <div className='flex flex-col justify-center p-2 h-max'>

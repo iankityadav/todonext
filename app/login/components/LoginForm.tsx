@@ -8,12 +8,12 @@ import { useState } from "react";
 const LoginForm = () => {
     const isAuth = useAppSelector((state) => state.auth.isAuth)
     const router = useRouter()
+    const dispatch = useAppDispatch();
+    const [values, setValues] = useState({ email: "", password: "" });
     if (isAuth) {
         router.push('/')
         return null
     }
-    const dispatch = useAppDispatch();
-    const [values, setValues] = useState({ email: "", password: "" });
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
         setValues({ ...values, [name]: value })

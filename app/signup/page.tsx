@@ -1,8 +1,9 @@
-import React from 'react'
+import SignUpContainer from './components/SignUpContainer'
 
 const signup = () => {
+
   return (
-    <div>Sign up</div>
+    <SignUpContainer />
   )
 }
 

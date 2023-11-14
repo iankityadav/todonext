@@ -1,17 +1,20 @@
 "use client"
 
 import UserCard from "./components/UserCard";
-import { User } from "./models/user";
 import { useEffect, useState } from "react";
-import { useAppSelector } from "./store";
+import { useAppDispatch, useAppSelector } from "./store";
+import { setUser } from "./store/auth/auth.slice";
 
 export default function Home() {
   const isAuth = useAppSelector((state) => state.auth.isAuth);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
-  let [user, setUser] = useState<User | undefined>(); //useAppSelector((state) => state.auth.user);
+  const user = useAppSelector((state) => state.auth.user);
+  const dispatch = useAppDispatch();
   useEffect(() => {
     setIsAuthenticated(isAuth);
-    setUser({ email: 'ankit@gmail.com', name: 'ANkit Yadav' })
+    if (isAuth) {
+      dispatch(setUser({ name: "Ankit Yadav", email: "ankit@mail.co", id: "67c4bdf3-2c60-41c8-89e8-cb4436c78add" }));
+    }
     console.log(user)
   }, [isAuth])
   return (

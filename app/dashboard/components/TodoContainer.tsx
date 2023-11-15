@@ -49,7 +49,7 @@ const TodoContainer = () => {
         id: "" + todo.id
       })), {
         method: "DELETE",
-        headers: { "Content-Type": "application/json", "Authorization": token },
+        headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
         mode: 'cors',
       })
       const data = await res.json()
@@ -69,7 +69,7 @@ const TodoContainer = () => {
         id: "" + todo.id
       })), {
         method: "PATCH",
-        headers: { "Content-Type": "application/json", "Authorization": token },
+        headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
         body: JSON.stringify(todo),
         mode: 'cors',
       })

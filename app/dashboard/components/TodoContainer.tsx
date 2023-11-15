@@ -15,15 +15,9 @@ const TodoContainer = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [flag, setFlag] = useState<boolean>(false);
   const [addTodoFlag, setAddTodoFlag] = useState<boolean>(false);
-  useEffect(() => {
-    fetchTodoList()
-  }, [flag])
-  if (!isAuth) {
-    router.push('/login')
-    return null
-  }
 
   const fetchTodoList = async () => {
+    if (user?.id === undefined) return []
     try {
       const res = await fetch(`http://localhost:3000/users/${user?.id}/todos`, {
         method: "GET",
@@ -37,6 +31,15 @@ const TodoContainer = () => {
       console.error(error);
     }
     return []
+  }
+
+  useEffect(() => {
+    fetchTodoList()
+  }, [flag])
+
+  if (!isAuth) {
+    router.push('/login')
+    return null
   }
 
   const deleteTodo = async (todo: Todo) => {

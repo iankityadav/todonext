@@ -32,7 +32,7 @@ export default function Home() {
   }
   useEffect(() => {
     setIsAuthenticated(isAuth);
-    if (isAuth) {
+    if (isAuth && user === undefined) {
       loadProfile()
     }
     console.log(user)

@@ -21,7 +21,7 @@ const TodoContainer = () => {
     try {
       const res = await fetch(`http://localhost:3000/users/${user?.id}/todos`, {
         method: "GET",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
         mode: 'cors',
       })
       const data: Todo[] = await res.json()

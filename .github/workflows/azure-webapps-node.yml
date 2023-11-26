@@ -24,26 +24,32 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: todo-ay    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '18.x'                # set this to the node version to use
 
 permissions:
   contents: read
 
 jobs:
-  deploy:
-    permissions:
-      contents: none
+  build-and-deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
     steps:
+    # checkout the repo
+    - name: 'Checkout Github Action' 
+      uses: actions/checkout@master
+    
+    - name: Setup Node 18.x
+      uses: actions/setup-node@v3
+      with: 
+        node-version: ${{ env.NODE_VERSION }}
+      
+    - name: 'yarn install and build'
+      run: |
+        yarn install
+        yarn build
+    
     - name: 'Deploy to Azure WebApp'
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}

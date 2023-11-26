@@ -29,7 +29,7 @@ const SignUpContainer = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const res = await fetch("http://localhost:3000/users/signup", {
+            const res = await fetch("${apiUrl}/users/signup", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(values),

@@ -15,7 +15,7 @@ export default function Home() {
 
   const loadProfile = async () => {
     try {
-      const res = await fetch("http://localhost:3000/whoAmI", {
+      const res = await fetch("${apiUrl}/whoAmI", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
         body: '',

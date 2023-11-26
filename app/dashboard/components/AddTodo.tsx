@@ -18,7 +18,7 @@ const AddTodo = (
         e.preventDefault();
         setValues({ title: "", desc: "", isComplete: false })
         try {
-            const res = await fetch(`http://localhost:3000/users/${user?.id}/todos`, {
+            const res = await fetch(`${apiUrl}/users/${user?.id}/todos`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
                 body: JSON.stringify(values),

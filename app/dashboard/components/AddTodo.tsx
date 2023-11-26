@@ -4,6 +4,8 @@ import { useAppSelector } from "@/app/store";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 const AddTodo = (
     { flag, setFlag, addTodoFlag, setAddTodoFlag
     }: { flag: boolean, setFlag: any, addTodoFlag: boolean, setAddTodoFlag: any }) => {

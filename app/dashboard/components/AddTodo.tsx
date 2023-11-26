@@ -4,6 +4,8 @@ import { useAppSelector } from "@/app/store";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 const AddTodo = (
     { flag, setFlag, addTodoFlag, setAddTodoFlag
     }: { flag: boolean, setFlag: any, addTodoFlag: boolean, setAddTodoFlag: any }) => {
@@ -18,7 +20,7 @@ const AddTodo = (
         e.preventDefault();
         setValues({ title: "", desc: "", isComplete: false })
         try {
-            const res = await fetch(`http://localhost:3000/users/${user?.id}/todos`, {
+            const res = await fetch(`${apiUrl}/users/${user?.id}/todos`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
                 body: JSON.stringify(values),

@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import Swal from "sweetalert2"
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 const SignUpContainer = () => {
     const isAuth = useAppSelector((state) => state.auth.isAuth)
     const router = useRouter()
@@ -29,7 +31,7 @@ const SignUpContainer = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const res = await fetch("http://localhost:3000/users/signup", {
+            const res = await fetch(`${apiUrl}/users/signup`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(values),

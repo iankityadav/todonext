@@ -6,6 +6,8 @@ import { useAppDispatch, useAppSelector } from "./store";
 import { setUser } from "./store/auth/auth.slice";
 import { User } from "./models/user";
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 export default function Home() {
   const isAuth = useAppSelector((state) => state.auth.isAuth);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
@@ -15,7 +17,7 @@ export default function Home() {
 
   const loadProfile = async () => {
     try {
-      const res = await fetch("http://localhost:3000/whoAmI", {
+      const res = await fetch(`${apiUrl}/whoAmI`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
         body: '',

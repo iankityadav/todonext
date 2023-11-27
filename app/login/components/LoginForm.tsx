@@ -21,7 +21,6 @@ const LoginForm = () => {
     setValues({ ...values, [name]: value });
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log(apiUrl);
     e.preventDefault();
     try {
       const res = await fetch(`${apiUrl}/users/login`, {

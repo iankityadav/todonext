@@ -7,9 +7,8 @@ import AddTodo from "./AddTodo";
 import { Todo } from "@/app/models/todo";
 import { PlusCircleIcon } from "@heroicons/react/24/solid";
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-
 const TodoContainer = () => {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const isAuth = useAppSelector((state) => state.auth.isAuth);
   const router = useRouter();
   const user = useAppSelector((state) => state.auth.user);

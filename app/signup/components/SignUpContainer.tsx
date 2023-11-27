@@ -7,9 +7,8 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import Swal from "sweetalert2"
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-
 const SignUpContainer = () => {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     const isAuth = useAppSelector((state) => state.auth.isAuth)
     const router = useRouter()
     const dispatch = useAppDispatch();

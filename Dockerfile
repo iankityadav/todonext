@@ -18,11 +18,11 @@ RUN yarn install
 
 # Bundle app source code
 COPY --chown=node . .
-
+ENV TODO_LOOPBACK=$TODO_LOOPBACK
 RUN yarn build
 
 # Bind to all network interfaces so that it can be mapped to the host OS
-ENV HOST=0.0.0.0 PORT=3000 TODO_LOOPBACK=$TODO_LOOPBACK
+ENV HOST=0.0.0.0 PORT=3000 
 
 EXPOSE ${PORT}
 CMD [ "yarn", "start"]

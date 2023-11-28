@@ -22,7 +22,7 @@ COPY --chown=node . .
 RUN yarn build
 
 # Bind to all network interfaces so that it can be mapped to the host OS
-ENV HOST=0.0.0.0 PORT=3000
+ENV HOST=0.0.0.0 PORT=3000 TODO_LOOPBACK=$TODO_LOOPBACK
 
 EXPOSE ${PORT}
 CMD [ "yarn", "start"]

@@ -3,7 +3,9 @@
 import { useAppSelector } from "@/app/store";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import getConfig from 'next/config';
 
+const { publicRuntimeConfig } = getConfig();
 const AddTodo = ({
   flag,
   setFlag,
@@ -15,7 +17,7 @@ const AddTodo = ({
   addTodoFlag: boolean;
   setAddTodoFlag: any;
 }) => {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const apiUrl = publicRuntimeConfig.NEXT_PUBLIC_API_URL;
   const user = useAppSelector((state) => state.auth.user);
   const token = useAppSelector((state) => state.auth.token);
   const [values, setValues] = useState({

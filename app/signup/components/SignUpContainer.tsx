@@ -6,9 +6,11 @@ import { setUser } from "@/app/store/auth/auth.slice"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import Swal from "sweetalert2"
+import getConfig from 'next/config';
 
+const { publicRuntimeConfig } = getConfig();
 const SignUpContainer = () => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    const apiUrl = publicRuntimeConfig.NEXT_PUBLIC_API_URL;
     const isAuth = useAppSelector((state) => state.auth.isAuth)
     const router = useRouter()
     const dispatch = useAppDispatch();

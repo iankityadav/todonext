@@ -5,11 +5,9 @@ import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "./store";
 import { setUser } from "./store/auth/auth.slice";
 import { User } from "./models/user";
-import getConfig from 'next/config';
 
-const { publicRuntimeConfig } = getConfig();
 export default function Home() {
-  const apiUrl = publicRuntimeConfig.NEXT_PUBLIC_API_URL;
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const isAuth = useAppSelector((state) => state.auth.isAuth);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
   const token = useAppSelector((state) => state.auth.token)

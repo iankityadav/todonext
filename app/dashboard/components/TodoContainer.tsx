@@ -6,11 +6,9 @@ import TodoList from "./TodoList";
 import AddTodo from "./AddTodo";
 import { Todo } from "@/app/models/todo";
 import { PlusCircleIcon } from "@heroicons/react/24/solid";
-import getConfig from 'next/config';
 
-const { publicRuntimeConfig } = getConfig();
 const TodoContainer = () => {
-  const apiUrl = publicRuntimeConfig.NEXT_PUBLIC_API_URL;
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const isAuth = useAppSelector((state) => state.auth.isAuth);
   const router = useRouter();
   const user = useAppSelector((state) => state.auth.user);

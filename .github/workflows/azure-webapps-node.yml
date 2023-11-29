@@ -26,5 +26,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build . -t ${{ secrets.ACR_SERVER }}/todonext:latest
+          docker build . -t ${{ secrets.ACR_SERVER }}/todonext:latest --build-arg API_URL=${{ secrets.API_URL }}
           docker push ${{ secrets.ACR_SERVER }}/todonext:latest

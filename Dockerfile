@@ -18,7 +18,8 @@ RUN yarn install
 
 # Bundle app source code
 COPY --chown=node . .
-ENV TODO_LOOPBACK=$TODO_LOOPBACK
+ARG API_URL
+ENV TODO_LOOPBACK=$API_URL
 RUN yarn build
 
 # Bind to all network interfaces so that it can be mapped to the host OS
